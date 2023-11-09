@@ -1,0 +1,24 @@
+{
+  "name": "employeetracker",
+  "version": "1.0.0",
+  "description": "Employee Tracker Using Node, Inquirer and MySQL.",
+  "main": "server.js",
+  "scripts": {
+    "test": "\"test\"",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ScottGCode/EmployeeTracker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ScottGCode/EmployeeTracker/issues"
+  },
+  "homepage": "https://github.com/ScottGCode/EmployeeTracker#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4",
+    "mysql2": "^3.6.3"
+  }
+}
