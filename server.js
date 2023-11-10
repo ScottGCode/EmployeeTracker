@@ -8,10 +8,12 @@ const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     database: 'company_db'
-}).then ((connection) => {
+})
+.then ((connection) => {
     console.log('Connected to the company database!');
     return connection;
-}).catch ((error) => {
+})
+.catch ((error) => {
     console.error('Error connecting to the database:', error.message)
     throw error;
 });
@@ -56,37 +58,50 @@ function promptUser() {
 }
 
 async function viewAllEmployees() {
-    const connection = awaid db;
+    const connection = await db;
+
+    connection.execute('SELECT * FROM employees')
+    .then(([rows]) => {
+        if (rows.length === 0) {
+            console.log('No employees found.');
+        }else {
+            console.log('All Employees:');
+            console.table(rows);
+        }
+    })
+    .catch((error) => {
+        console.error('Error querying the database:', error.message);
+    });
 
 }
 
 async function addEmployee() {
-    const connection = awaid db;
+    const connection = await db;
 
 }
 
 async function updateEmployeeJobTitle() {
-    const connection = awaid db;
+    const connection = await db;
 
 }
 
 async function viewAllJobTitles() {
-    const connection = awaid db;
+    const connection = await db;
 
 }
 
 async function addJobTitle() {
-    const connection = awaid db;
+    const connection = await db;
 
 }
 
 async function viewAllDepartments() {
-    const connection = awaid db;
+    const connection = await db;
 
 }
 
 async function addDepartment() {
-    const connection = awaid db;
+    const connection = await db;
 
 }
 
