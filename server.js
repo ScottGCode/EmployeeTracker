@@ -110,23 +110,36 @@ async function updateEmployeeJobTitle() {
     try {
     const connection = await db;
 
-    const [employeeResult] = await connection.query(`SELECT title as name, id as value FROM title`);
+    const [employeeResult] = await connection.query(`SELECT CONCAT(first_name, " ", last_name) as name, id as value FROM employee`);
     const employeesAndRoles = employeeResult[0];
     const [titlesResult] = await connection.query(`SELECT title as name, id as value FROM title`);
     const titles = titlesResult[0];
+
+    let employeeChoices, titleChoices;
+
+    if (employeesAndRoles) {
+        employeeChoices = employeesAndRoles.map(employee => ({ name: employee.name, value: employee.value }));
+    } else {
+        employeeChoices = [];
+    }
+    if (titles) {
+        titleChoices = titles.map(title => ({ name: title.name, value: title.value }));
+    } else {
+        titleChoices = [];
+    }
     
     const userInput = await inquirer.prompt([
         {
             type: 'list',
             name: 'employee_id',
             message: 'Which employee\'s role do you want to update?',
-            choices: employeesAndRoles
+            choices: employeeChoices,
         },
         {
             type: 'list',
             name: 'new_role_id',
             message: 'What role do you want to assign to the selected employee?',
-            choices: titles
+            choices: titleChoices,
         }
     ]);
 
@@ -135,7 +148,7 @@ async function updateEmployeeJobTitle() {
 } catch (error) {
     console.error('Error updating employee role:', error.message);
 }
-await promptUser();
+//await promptUser();
 };
 
 async function viewAllJobTitles() {
