@@ -5,11 +5,11 @@ const cFonts = require('cfonts');
 
 // MySQL connection to database
 const db = mysql.createConnection({
-    host: 'localhost',
+    host: '127.0.0.1',
     user: 'root',
     password: '',
     database: 'company_db',
-    port: 3001,
+    port: 3306,
 });
 
 // ASCII font using NPM cfonts.
