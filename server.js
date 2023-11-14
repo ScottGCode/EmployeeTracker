@@ -35,21 +35,21 @@ const choices = {
     'Add Department': addDepartment,
 };
 
-function promptUser() {
-    inquirer.prompt({
+async function promptUser() {
+    const response = await inquirer.prompt({
         type: 'list',
         name: 'database',
         message: 'What would you like to do?',
         choices: Object.keys(choices),
-    }).then(response => {
+    });
         const selectedAction = choices[response.database];
         if (selectedAction) {
-            selectedAction();
-        } else {
+            await selectedAction();
+            await promptUser();
+        }else {
             console.log('Invalid choice');
         }
-    });
-}
+    }
 
 async function viewAllEmployees() {
     try {
@@ -70,8 +70,8 @@ async function addEmployee() {
     try {
     const connection = await db;
 
-    const getRolesPromise = connection.promise().query(`SELECT title as name, id as value FROM title`);
-    const getEmployeesPromise = connection.promise().query(`SELECT CONCAT(first_name,' ',last_name) as name, id as value FROM employee`);
+    const getRolesPromise = connection.query(`SELECT title as name, id as value FROM title`);
+    const getEmployeesPromise = connection.query(`SELECT CONCAT(first_name,' ',last_name) as name, id as value FROM employee`);
 
     const [roles,employees] = await Promise.all([getRolesPromise, getEmployeesPromise]);
     const userInput = await inquirer.prompt([
@@ -99,7 +99,7 @@ async function addEmployee() {
         },
     ]);
     
-    await connection.promise().query(`INSERT INTO employee SET ?`, userInput);
+    await connection.query(`INSERT INTO employee SET ?`, userInput);
     console.log(`Employee: ${userInput.first_name} ${userInput.last_name} added!`);
 } catch (error) {
     console.error('Error adding employee:', error.message);
@@ -109,27 +109,33 @@ async function addEmployee() {
 async function updateEmployeeJobTitle() {
     try {
     const connection = await db;
-    const getEmployeesandRolesPromise = connection.promise().query(`SELECT title as name, id as value FROM title`);
+
+    const [employeeResult] = await connection.query(`SELECT title as name, id as value FROM title`);
+    const employeesAndRoles = employeeResult[0];
+    const [titlesResult] = await connection.query(`SELECT title as name, id as value FROM title`);
+    const titles = titlesResult[0];
+    
     const userInput = await inquirer.prompt([
         {
             type: 'list',
             name: 'employee_id',
             message: 'Which employee\'s role do you want to update?',
-            choices: employeesAndRoles[0]
+            choices: employeesAndRoles
         },
         {
             type: 'list',
             name: 'new_role_id',
             message: 'What role do you want to assign to the selected employee?',
-            choices: roles[0]
+            choices: titles
         }
     ]);
 
-    await connection.promise().query('UPDATE employee SET role_id = ? WHERE id = ?', [userInput.new_role_id, userInput.employee_id]);
+    await connection.query('UPDATE employee SET role_id = ? WHERE id = ?', [userInput.new_role_id, userInput.employee_id]);
     console.log(`Employee's role updated!`);
 } catch (error) {
     console.error('Error updating employee role:', error.message);
 }
+await promptUser();
 };
 
 async function viewAllJobTitles() {
@@ -151,7 +157,7 @@ async function addJobTitle() {
     try {
     const connection = await db;
 
-    const getDepartmentsPromise = connection.promise().query(`SELECT department_name as name, id as value FROM department`);
+    const getDepartmentsPromise = connection.query(`SELECT department_name as name, id as value FROM department`);
     const [departments] = await Promise.all([getDepartmentsPromise]);
     const userInput = await inquirer.prompt([
         {
@@ -171,9 +177,8 @@ async function addJobTitle() {
             choices: departments[0]
         }
     ]);
-    await connection.promise().query('INSERT INTO title SET ?', userInput);
+    await connection.query('INSERT INTO title SET ?', userInput);
     console.log(`Job Title: ${userInput.title} added!`);
-    init();
 } catch (error) {
     console.error('Error adding job title:', error.message);
 }
@@ -187,6 +192,7 @@ async function viewAllDepartments() {
             console.log('No departments found.');
         }else {
             console.log('All Departments');
+            console.table(rows);
         }
     } catch(error) {
         console.error('Error querying the database', error.message);
@@ -203,9 +209,8 @@ async function addDepartment() {
             message: 'What is the name of the department?'
         }
     ]);
-    await connection.promise().query('INSERT INTO department SET ?', userInput);
+    await connection.query('INSERT INTO department SET ?', userInput);
     console.log(`Department: ${userInput.department_name} added!`);
-    init();
 } catch (error) {
     console.error('Error adding department:', error.message);
 }
