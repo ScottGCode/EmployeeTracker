@@ -2,12 +2,7 @@
 
 ## Description
 
-I wanted to create an interface that allows non-developers to easily view and interact with information stored in databases. As a business owner it would be helpful to have an easy way to work with the information in your company database. I wanted the application to allow a business owner to view and manage the departments, roles, and employees in a company so that they can organize and plan their business easier. This content management system (CMS) is a command line application that will manage a company's employee database, using Node.js, Inquirer and MySQL. I learned and practiced the use of prepared statements to handle MySQL queries. The ASCII was made using Cfonts. 
-
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
+I wanted to create an interface that allows non-developers to easily view and interact with information stored in databases. As a business owner it would be helpful to have an easy way to work with the information in your company database. I wanted the application to allow a business owner to view and manage the departments, roles, and employees in a company so that they can organize and plan their business easier. This content management system (CMS) is a command line application that will manage a company's employee database, using Node.js, Inquirer and MySQL2. I learned and practiced the use of prepared statements to handle MySQL queries and how to utilize the strength of asynchronous functions. The ASCII was made using Cfonts. 
 
 ## Installation
 
@@ -20,7 +15,7 @@ To install this application and get the development enviroment up and running:
 
 ## Usage
 
-To use this application. Follow the steps for Installation. Then run the command `npm start` to start the inquirer prompts. You will be presented with a list of options to choose from. If you select "View All Employees" you will be presented with a table that includes all employee's. If you select "Add Employee" you will be prompted with questions regarding the new employee (first name, last name, department, manager). If you select "Update Employee Job Title" you will be able to update a current employee's job title. If you select "View All Job Titles" you will be presented with a table that includes all of the job title's within the company database. If you select "Add Job Title" you will be able to add a new job title and assign a salary and department to it. If you select "View All Departments" you will be presented with a table that shows all of the departments within the company database. Lastly, if you select "Add Department" you will be able to add a new department to the database. 
+To use this application. Follow the steps for Installation. Then run the command `npm start` to start the inquirer prompts. You will be presented with a list of options to choose from. If you select "View All Employees" you will be presented with a table that includes all employee's in the company database. If you select "Add Employee" you will be prompted with questions regarding the new employee (first name, last name, department, manager) and the employee will be added to the database. If you select "Update Employee Job Title" you will be able to update a current employee's job title. If you select "View All Job Titles" you will be presented with a table that includes all of the job title's within the company database. If you select "Add Job Title" you will be able to add a new job title and assign a salary and department to it. If you select "View All Departments" you will be presented with a table that shows all of the departments within the company database. Lastly, if you select "Add Department" you will be able to add a new department to the database. 
 
 To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative file path, add it to your README using the following syntax:
 
