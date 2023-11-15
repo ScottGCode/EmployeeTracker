@@ -2,7 +2,7 @@
 
 ## Description
 
-I wanted to create an interface that allows non-developers to easily view and interact with information stored in databases. As a business owner it would be helpful to have an easy way to work with the information in your company database. I wanted the application to allow a business owner to view and manage the departments, roles, and employees in a company so that they can organize and plan their business easier. This content management system (CMS) is a command line application that will manage a company's employee database, using Node.js, Inquirer and MySQL. I learned and practiced the use of prepared statements to handle MySQL queries.
+I wanted to create an interface that allows non-developers to easily view and interact with information stored in databases. As a business owner it would be helpful to have an easy way to work with the information in your company database. I wanted the application to allow a business owner to view and manage the departments, roles, and employees in a company so that they can organize and plan their business easier. This content management system (CMS) is a command line application that will manage a company's employee database, using Node.js, Inquirer and MySQL. I learned and practiced the use of prepared statements to handle MySQL queries. The ASCII was made using Cfonts. 
 
 - What was your motivation?
 - Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
