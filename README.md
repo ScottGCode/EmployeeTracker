@@ -17,13 +17,11 @@ To install this application and get the development enviroment up and running:
 
 To use this application. Follow the steps for Installation. Run the command `npm start` to start the inquirer prompts. You will be presented with a list of options to choose from. Use the arrow keys and enter to make your selections. If you select "View All Employees" you will be presented with a table that includes all employee's in the company database. If you select "Add Employee" you will be prompted with questions regarding the new employee (first name, last name, department, and manager) and the employee will be added to the database. If you select "Update Employee Job Title" you will be able to update a current employee's job title. If you select "View All Job Titles" you will be presented with a table that includes all of the job title's from the company database. If you select "Add Job Title" you will be able to add a new job title and assign a salary and a department to it. If you select "View All Departments" you will be presented with a table that shows all of the departments from the company database. If you select "Add Department" you will be able to add a new department to the database. 
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative file path, add it to your README using the following syntax:
-
-![Video Walkthrough](assets/images/screenshot.png)
+![Video Walkthrough](/Assets/Untitled_%20Nov%2015,%202023%2010_12%20PM.gif)
 
 ## Credits
 
-University of Utah Coding Bootcamp Instructor and Teaching Assistants. NPM documentation on MySQL2 and Inquirer. CFonts documentation. MDN Web Docs. W3 Schools. 
+University of Utah Coding Bootcamp Instructor and Teaching Assistants. NPM documentation on MySQL2 and Inquirer. CFonts documentation. MDN Web Docs. W3 Schools. FullStack Blog. 
 
 ## License
 
