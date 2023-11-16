@@ -76,10 +76,10 @@ async function viewAllEmployees() {
 async function addEmployee() {
     try {
     const connection = await db;
-    // Fetch roles and employees data for user choices
+    // Fetch roles and employees data for user choices.
     const getRoles = connection.query(`SELECT title as name, id as value FROM title`);
     const getEmployees = connection.query(`SELECT CONCAT(first_name,' ',last_name) as name, id as value FROM employee`);
-    // Wait for both role and employee data to be retrieved
+    // Wait for both role and employee data to be retrieved.
     const [roles,employees] = await Promise.all([getRoles, getEmployees]);
     // Prompt user for new employee details.
     const userInput = await inquirer.prompt([
@@ -139,7 +139,7 @@ async function updateJobTitle() {
             choices: titleChoices,
         }
     ]);
-    // Update the selected employee's job title in the database
+    // Update the selected employee's job title in the database.
     await connection.query('UPDATE employee SET role_id = ? WHERE id = ?', [userInput.new_role_id, userInput.employee_id]);
     console.log(`Employee's role updated!`);
     } catch (error) {

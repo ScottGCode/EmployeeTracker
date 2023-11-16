@@ -15,15 +15,15 @@ To install this application and get the development enviroment up and running:
 
 ## Usage
 
-To use this application. Follow the steps for Installation. Then run the command `npm start` to start the inquirer prompts. You will be presented with a list of options to choose from. If you select "View All Employees" you will be presented with a table that includes all employee's in the company database. If you select "Add Employee" you will be prompted with questions regarding the new employee (first name, last name, department, manager) and the employee will be added to the database. If you select "Update Employee Job Title" you will be able to update a current employee's job title. If you select "View All Job Titles" you will be presented with a table that includes all of the job title's within the company database. If you select "Add Job Title" you will be able to add a new job title and assign a salary and department to it. If you select "View All Departments" you will be presented with a table that shows all of the departments within the company database. Lastly, if you select "Add Department" you will be able to add a new department to the database. 
+To use this application. Follow the steps for Installation. Run the command `npm start` to start the inquirer prompts. You will be presented with a list of options to choose from. Use the arrow keys and enter to make your selections. If you select "View All Employees" you will be presented with a table that includes all employee's in the company database. If you select "Add Employee" you will be prompted with questions regarding the new employee (first name, last name, department, and manager) and the employee will be added to the database. If you select "Update Employee Job Title" you will be able to update a current employee's job title. If you select "View All Job Titles" you will be presented with a table that includes all of the job title's from the company database. If you select "Add Job Title" you will be able to add a new job title and assign a salary and a department to it. If you select "View All Departments" you will be presented with a table that shows all of the departments from the company database. If you select "Add Department" you will be able to add a new department to the database. 
 
 To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative file path, add it to your README using the following syntax:
 
-![alt text](assets/images/screenshot.png)
+![Video Walkthrough](assets/images/screenshot.png)
 
 ## Credits
 
-University of Utah Coding Bootcamp Instructor and Teaching Assistants. Npm documentation on MySQL2. CFonts documentation. Inquirer Documentation. 
+University of Utah Coding Bootcamp Instructor and Teaching Assistants. NPM documentation on MySQL2 and Inquirer. CFonts documentation. MDN Web Docs. W3 Schools. 
 
 ## License
 
